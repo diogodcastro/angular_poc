@@ -1,0 +1,13 @@
+{
+  "CLIENT": {
+    "NAME": "Nome",
+    "ADDRESS": "Morada",
+    "ID": "Numero de Identificação"
+  },
+  "VEHICLE": {
+    "BRAND": "Marca",
+    "MODEL": "Modelo",
+    "COLOR": "Cor",
+    "VIN": "VIN"
+  }
+}

@@ -1,0 +1,47 @@
+<div class="col-md-12">
+
+  <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle" [style]="{width: '50vw'}">
+    <p-footer>
+      <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    </p-footer>
+  </p-confirmDialog>
+  <p-toast [style]="{marginTop: '80px', width: '400px'}"></p-toast>
+
+
+  <div class="tables">
+    <p-table [value]="this.vehicles">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>VIN</th>
+          <th>Color</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-vehicle>
+        <tr>
+          <td>{{vehicle.brand}}</td>
+          <td>{{vehicle.model}}</td>
+          <td>{{vehicle.vin}}</td>
+          <td>{{vehicle.color}}</td>
+          <td>
+              <span>
+                <button pButton type="button" (click)="editVehicleModal(vehicle)" icon="pi pi-info" class="ui-button-rounded ui-button-warning"></button>
+              </span>
+             <span>
+               <button pButton type="button" (click)="deleteVehicleModal(vehicle)" icon="pi pi-trash" class="ui-button-rounded ui-button-danger"></button>
+             </span>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="buttons">
+    <button pButton type="button" label="Create New Vehicle" class="ui-button-raised ui-button-secondary" (click)="createVehicleModal()"></button>
+  </div>
+
+
+</div>

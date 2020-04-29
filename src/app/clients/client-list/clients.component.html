@@ -1,0 +1,49 @@
+<div class="col-md-12">
+
+  <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle" [style]="{width: '50vw'}">
+    <p-footer>
+      <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    </p-footer>
+  </p-confirmDialog>
+  <p-toast [style]="{marginTop: '80px', width: '400px'}"></p-toast>
+
+  <div class="tables">
+    <p-table [value]="this.clients">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{'CLIENT.NAME' | translate }}</th>
+          <th>{{'CLIENT.ADDRESS' | translate }}</th>
+          <th>{{'CLIENT.ID' | translate }}</th>
+          <th>{{'CLIENT.VEHICLES' | translate }}</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-client>
+        <tr>
+          <td>{{client.name}}</td>
+          <td>{{client.address}}</td>
+          <td>{{client.idNumber}}</td>
+          <td>{{getClientVehicleList(client.vehicleList)}}</td>
+          <td>
+            <span>
+                <button pButton type="button" icon="pi pi-key" (click)="editClientVehicles(client)" class="ui-button-rounded ui-button-success"></button>
+              </span>
+            <span>
+                <button pButton type="button" icon="pi pi-info" (click)="editVehicleModal(client)" class="ui-button-rounded ui-button-warning"></button>
+              </span>
+            <span>
+               <button pButton type="button" icon="pi pi-trash" (click)="deleteClientModal(client)" class="ui-button-rounded ui-button-danger"></button>
+             </span>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="buttons">
+    <button pButton type="button" label="Create New Client" (click)="createClientModal()" class="ui-button-raised ui-button-secondary"></button>
+  </div>
+
+</div>
+

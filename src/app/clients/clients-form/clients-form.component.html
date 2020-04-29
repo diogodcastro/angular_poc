@@ -1,0 +1,32 @@
+<form [formGroup]="clientForm">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">{{'CLIENT.NAME' | translate }} *:</div>
+      <div class="ui-grid-col-6">
+        <input pInputText type="text" formControlName="name" placeholder="Required"/>
+      </div>
+    </div>
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">{{'CLIENT.ADDRESS' | translate }} *:</div>
+      <div class="ui-grid-col-6">
+        <input pInputText type="text" formControlName="address" placeholder="Required"/>
+      </div>
+    </div>
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">{{'CLIENT.ID' | translate }} *:</div>
+      <div class="ui-grid-col-6">
+        <input pInputText type="text" formControlName="idNumber" placeholder="Required"/>
+      </div>
+    </div>
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2"></div>
+      <div class="ui-grid-col-6">
+        <button pButton type="submit" label="Submit" [disabled]="!clientForm.valid" (click)="saveClientData()"></button>
+      </div>
+      <div class="ui-grid-col-4"></div>
+    </div>
+  </div>
+</form>
